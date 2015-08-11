@@ -81,24 +81,11 @@ describe('uploadSubject module', function () {
     });
 
     describe('_createPanoptesSubject method', function () {
-
-        it('should create a new subject on the backend', function () {
-            var Panoptes = nock('https://panoptes.zooniverse.org')
-                .get('/api/subjects/242')
-                .reply(200, {
-                    message: 'hello world'
-                });
-            uploadSubject._createPanoptesSubject(goodSubject);
-            if (!Panoptes.isDone()) {
-              console.error('pending mocks: %j', Panoptes.pendingMocks());
-            }
-        });
-
     });
 
     it('should have a _uploadLocations method', function () {
-        // expect(uploadSubject).to.have.a.property('_uploadLocations');
-        // expect(uploadSubject._uploadLocations).to.be.a('function');
+        expect(uploadSubject).to.have.a.property('_uploadLocations');
+        expect(uploadSubject._uploadLocations).to.be.a('function');
     });
 
     describe('_uploadLocations method', function () {
